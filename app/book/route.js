@@ -12,7 +12,7 @@ export default Ember.Route.extend({
 
   actions: {
     save: function(book) {
-      console.log(book);
+      book.save();
 
       // let data = this.get('newBook');
       // data.title = this.get('model').get('title')
