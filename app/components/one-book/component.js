@@ -3,7 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   actions: {
     editBook: function() {
-      this.sendAction('editBook', book);
+      // console.log(this.get('book'))
+      this.sendAction('editBook', this.get('book'));
     }
   }
 });
