@@ -16,6 +16,12 @@ export default Ember.Route.extend({
     },
     cancel: function() {
       this.transitionTo('index')
+    },
+    deleteBook: function(book) {
+      book.destroyRecord()
+        .then(()=>{
+          this.transitionTo('index');
+        });
     }
   }
 });
