@@ -14,8 +14,10 @@ export default Ember.Route.extend({
       // let books = this.get('store').findAll('book');
       // console.log(model.get('length'));
     },
-    rankUp: function() {
-      console.log("in index")
+    rankUp: function(book) {
+      console.log("in index, book is ", book)
+      book.set('rank', book.get('rank') + 1)
+      console.log(book.get('rank'))
     }
   }
 });

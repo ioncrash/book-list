@@ -1,1 +1,5 @@
-{{book.title}}, by {{book.author}} <button {{action 'editBook'}}>Edit book</button> <button {{action 'rankUp'}}>Rank up</button>
+{{book.rank}}: {{book.title}}, by {{book.author}}
+<button {{action 'editBook'}}>Edit book</button>
+{{#if isntTop}}
+  <button {{action 'rankUp'}}>Rank up</button>
+{{/if}}

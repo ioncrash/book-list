@@ -1,8 +1,8 @@
-<ol>
+
   {{#each model as |book|}}
-    <li>{{one-book book=book editBook='editBook' rankUp='rankUp'}}</li>
+    {{one-book book=book editBook='editBook' rankUp='rankUp'}}
   {{/each}}
-</ol>
+
 
 <button {{action 'createBook'}}>Enter new book</button>
 {{outlet}}
