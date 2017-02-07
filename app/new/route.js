@@ -13,7 +13,6 @@ export default Ember.Route.extend({
       this.get('store').findAll('book').then((books) => {
         book.rank = books.get('length') + 1;
         let bookSave = this.get('store').createRecord('book', book);
-        console.log(bookSave)
         bookSave.save().then(() => {
           this.transitionTo('index')
         });
