@@ -7,7 +7,10 @@ export default Ember.Route.extend({
 
   actions: {
     editBook: function(book) {
-      this.transitionTo('book', book)
+      this.transitionTo('book', book);
+    },
+    createBook: function() {
+      this.transitionTo('new');
     }
   }
 });
