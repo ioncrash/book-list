@@ -11,8 +11,15 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    save: function(book) {
-      book.save();
+    save: function(book, isValid) {
+      if (isValid) {
+        book.save()
+        .then(()=>{
+          this.transitionTo('index');
+        });
+      } else {
+        Ember.$('.error').text("Something's wrong -- please make sure you have entered both a title and an author!")
+      }
     },
     cancel: function() {
       this.transitionTo('index')
