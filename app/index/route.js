@@ -11,13 +11,29 @@ export default Ember.Route.extend({
     },
     createBook: function() {
       this.transitionTo('new');
-      // let books = this.get('store').findAll('book');
-      // console.log(model.get('length'));
     },
     rankUp: function(book) {
-      console.log("in index, book is ", book)
-      book.set('rank', book.get('rank') + 1)
-      console.log(book.get('rank'))
+      let that = this;
+      new Ember.RSVP.Promise(function(resolve) {
+        that.store.findAll('book')
+          .then(function(books) {
+            return books.filterBy('rank', book.get('rank') - 1)[0];
+            // console.log(books)
+          })
+        .then((otherBook) => {
+          let newRank = otherBook.get('rank') + 1
+          otherBook.set('rank', newRank)
+          otherBook.save();
+        })
+        .then(()=> {
+          book.set('rank', book.get('rank') - 1);
+          book.save();
+        })
+
+      })
+      // console.log("in index, book is ", book)
+
+      // console.log(book.get('rank'))
     }
   }
 });

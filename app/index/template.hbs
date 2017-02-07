@@ -1,7 +1,4 @@
-
-  {{#each model as |book|}}
-    {{one-book book=book editBook='editBook' rankUp='rankUp'}}
-  {{/each}}
+{{books-comp books=model editBook='editBook' rankUp='rankUp'}}
 
 
 <button {{action 'createBook'}}>Enter new book</button>
