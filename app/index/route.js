@@ -11,6 +11,9 @@ export default Ember.Route.extend({
     },
     createBook: function() {
       this.transitionTo('new');
+      // let books = this.get('store').findAll('book');
+      // console.log(model.get('length'));
+
     }
   }
 });

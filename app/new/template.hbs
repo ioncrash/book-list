@@ -1,6 +1,1 @@
-<form class="edit-book-panel" {{action 'save' on='submit'}}>
-  {{input placeholder="Book title" value=book.title}}
-  {{input placeholder="Book author" value=book.author}}
-  <button type="submit" class="btn btn-submit edit-riff-btn">Submit</button>
-  <button {{action 'cancel'}} class='btn cancel-riff-btn'>Cancel</button>
-</form>
+{{create-panel save='save' cancel='cancel'}}
