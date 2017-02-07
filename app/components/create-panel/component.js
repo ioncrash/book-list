@@ -11,6 +11,8 @@ export default Ember.Component.extend({
   },
   actions: {
     cancel: function() {
+      this.set('book.title', '')
+      this.set('book.author', '')
       this.sendAction('cancel');
     },
     save: function() {
