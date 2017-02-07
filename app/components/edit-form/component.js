@@ -10,7 +10,7 @@ export default Ember.Component.extend({
       this.sendAction('save', this.get('book'), this.get('isValid'));
     },
     cancel: function() {
-      this.sendAction('cancel');
+      this.sendAction('cancel', this.get('book'));
     },
     deleteBook: function() {
       this.sendAction('deleteBook', this.get('book'));

@@ -21,7 +21,8 @@ export default Ember.Route.extend({
         Ember.$('.error').text("Something's wrong -- please make sure you have entered both a title and an author!")
       }
     },
-    cancel: function() {
+    cancel: function(book) {
+      book.rollbackAttributes();
       this.transitionTo('index')
     },
     deleteBook: function(book) {
