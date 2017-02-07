@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   isValid: Ember.computed('book.title', 'book.author', function() {
-    return (book.title !== '' && book.author !== '');
+    return (this.get('book.title') !== '' && this.get('book.author') !== '');
   }),
 
   book: {
@@ -14,9 +14,7 @@ export default Ember.Component.extend({
       this.sendAction('cancel');
     },
     save: function() {
-      console.log('isValid: ', this.get('isValid'))
-      // console.log(this.get('book'))
-      this.sendAction('save', this.get('book'));
+      this.sendAction('save', this.get('book'), this.get('isValid'));
     },
   }
 });
